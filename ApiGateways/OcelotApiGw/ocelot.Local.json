@@ -1,0 +1,105 @@
+{
+  "Routes": [
+    {
+      //"key": "catalog", فقط این کلید داری لیمیت خواهد بود  -**-
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ],
+      "UpstreamPathTemplate": "/Catalog",
+
+      "DownstreamPathTemplate": "/api/v1/catalog",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "8000"
+        }
+      ]
+    },
+    {
+      "UpstreamHttpMethod": [ "GET", "DELETE" ],
+      "UpstreamPathTemplate": "/Catalog/{id}",
+
+      "DownstreamPathTemplate": "/api/v1/catalog/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "8000"
+        }
+      ]
+    },
+    {
+      "UpstreamHttpMethod": [ "GET" ],
+      "UpstreamPathTemplate": "/Catalog/GetProductsByCategory/{category}",
+
+      "DownstreamPathTemplate": "/api/v1/catalog/GetProductsByCategory/{category}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "8000"
+        }
+      ]
+    },
+    {
+      "UpstreamHttpMethod": [ "GET", "DELETE" ],
+      "UpstreamPathTemplate": "/Basket/{userName}",
+
+      "DownstreamPathTemplate": "/api/v1/Basket/{userName}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "8001"
+        }
+      ]
+    },
+    {
+      "UpstreamHttpMethod": [ "POST" ],
+      "UpstreamPathTemplate": "/Basket",
+
+      "DownstreamPathTemplate": "/api/v1/Basket",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "8001"
+        }
+      ]
+    },
+    {
+      "UpstreamHttpMethod": [ "POST" ],
+      "UpstreamPathTemplate": "/Basket/Checkout",
+
+      "DownstreamPathTemplate": "/api/v1/Basket/Checkout",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "8001"
+        }
+      ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:5013"
+
+
+    //"RateLimitOptions": {
+    //  "RouteKeys": [ "catalog" ], // if undefined or empty array, opts will apply to all routes -**-
+    //  "ClientIdHeader": "Oc-Client", // std (default) header name
+    //  "Limit": 100,
+    //  "Period": "30s", // ms, s, m, h, d
+    //  "Wait": "1m", // ms, s, m, h, d
+    //  "StatusCode": 429, // Too Many Requests -> standard status
+    //  "QuotaMessage": "Ocelot API calls quota exceeded! Maximum admitted {0} per {1}.", // standard template with 2 parameters
+    //  "KeyPrefix": "ocelot-rate-limiting" // for caching key
+    //},
+
+    //"CacheOptions": {
+    //  "TtlSeconds": 1, // nullable integer
+    //  "Region": "", // string
+    //  "Header": "", // string
+    //  "EnableContentHashing": false // nullable boolean
+    //}
+  }
+}
