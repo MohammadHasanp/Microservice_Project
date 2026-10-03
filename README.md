@@ -423,8 +423,4 @@ This repository does not currently include automated test projects. Contribution
 
 ---
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
 **Repository owner:** [@MohammadHasanp](https://github.com/MohammadHasanp)
